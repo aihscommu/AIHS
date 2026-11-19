@@ -1499,7 +1499,6 @@ setTimeout(function(){el.classList.add('si-out');document.documentElement.classL
 <div class="row" role="group" aria-label="สีบัตร"><button type="button" data-c="blue" aria-pressed="false">ฟ้า</button><button type="button" data-c="silver" aria-pressed="false">เงิน</button><button type="button" data-c="navy" aria-pressed="true">น้ำเงิน</button></div></div>
 <div class="step"><b>5 ดาวน์โหลด</b>
 <div class="row"><button type="button" class="pri" id="icm-dlf">ด้านหน้า PNG</button><button type="button" class="pri" id="icm-dlb">ด้านหลัง PNG</button></div>
-<button type="button" class="pri" id="icm-dla" style="width:100%">ดาวน์โหลดทั้งสองด้าน</button>
 <p class="msg" id="icm-dm"></p></div>
 </form>
 <div class="stage">
@@ -1508,7 +1507,7 @@ setTimeout(function(){el.classList.add('si-out');document.documentElement.classL
 </div>
 </div>
 </div>
-<div class="out" id="icm-out" hidden><div class="in" role="dialog" aria-label="รูปบัตรที่สร้างเสร็จ"><div id="icm-ois" class="icm-ois"></div><p>ถ้ากดบันทึกแล้วไม่มีอะไรเกิดขึ้น (iPhone / iPad) ให้กดค้างที่รูปแล้วเลือกบันทึกรูป</p><button type="button" id="icm-oc">ปิด</button></div></div>
+<div class="out" id="icm-out" hidden><div class="in" role="dialog" aria-label="รูปบัตรที่สร้างเสร็จ"><div id="icm-ois" class="icm-ois"></div><p>บน iPhone / iPad กดบันทึกแล้วเลือก “บันทึกรูปภาพ” รูปจะเข้าแกลเลอรี หรือกดค้างที่รูปแล้วเลือกบันทึกรูป</p><button type="button" id="icm-oc">ปิด</button></div></div>
 <div class="render" aria-hidden="true"><div id="icm-rx"></div></div>
 
 <script>
@@ -1632,16 +1631,17 @@ if(side==='front'){
 }
 const out=c.toDataURL('image/png');c.width=1;c.height=1;return out}
 function fname(side){return 'AIHS-ID-'+(st.s?st.s.id:'card')+'-'+(side==='front'?'front':'back')+'.png'}
+function toFile(url,name){const b=atob(url.split(',')[1]),u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new File([u],name,{type:'image/png'})}
+function share(file,url,name){try{if(navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file]}).catch(()=>{});return}}catch(e){}save(url,name)}
 function save(url,name){try{const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove()}catch(e){}}
 async function shot(sides){const dm=$('#icm-dm');dm.textContent='กำลังสร้างรูป…';dm.className='msg';
 try{
 const box=$('#icm-ois');box.querySelectorAll('img').forEach(i=>{i.src=''});box.innerHTML='';const urls=[];
-for(const sd of sides){const url=await render(sd);const f=document.createElement('figure');f.className='icm-fig';const im=new Image();im.src=url;im.alt=sd==='front'?'ด้านหน้าบัตร':'ด้านหลังบัตร';const b=document.createElement('button');b.type='button';b.className='pri';b.textContent=sd==='front'?'บันทึกด้านหน้า':'บันทึกด้านหลัง';b.addEventListener('click',()=>save(url,fname(sd)));if(sides.length>1)f.append(im);else f.append(im,b);box.append(f);urls.push([url,fname(sd)])}
-if(sides.length>1){const b=document.createElement('button');b.type='button';b.className='pri';b.textContent='บันทึกทั้งสองด้าน';b.addEventListener('click',async()=>{for(const [u,n] of urls){save(u,n);await new Promise(r=>setTimeout(r,600))}});box.append(b)}
+for(const sd of sides){const url=await render(sd);const f=document.createElement('figure');f.className='icm-fig';const im=new Image();im.src=url;im.alt=sd==='front'?'ด้านหน้าบัตร':'ด้านหลังบัตร';const b=document.createElement('button');b.type='button';b.className='pri';b.textContent=sd==='front'?'บันทึกด้านหน้า':'บันทึกด้านหลัง';const fl=toFile(url,fname(sd));b.addEventListener('click',()=>share(fl,url,fname(sd)));if(sides.length>1)f.append(im);else f.append(im,b);box.append(f);urls.push([url,fname(sd)])}
 $('#icm-out').hidden=false;dm.textContent=''}
 catch(err){dm.textContent='สร้างรูปไม่สำเร็จ ลองใหม่อีกครั้ง'+(err&&err.message?' ('+err.message+')':'');dm.className='msg err'}}
 const layer=document.createElement('div');layer.className='icm icm-layer';layer.append($('#icm-out'),$('#icm-rx').parentElement);document.body.appendChild(layer);
-$('#icm-dlf').addEventListener('click',()=>shot(['front']));$('#icm-dlb').addEventListener('click',()=>shot(['back']));$('#icm-dla').addEventListener('click',()=>shot(['front','back']));
+$('#icm-dlf').addEventListener('click',()=>shot(['front']));$('#icm-dlb').addEventListener('click',()=>shot(['back']));
 $('#icm-oc').addEventListener('click',()=>{$('#icm-out').hidden=true});
 
 if(window.ICM_R)window.ICM_load(window.ICM_R);draw();document.fonts&&document.fonts.ready.then(fit);
