@@ -233,6 +233,28 @@ body.on-home .ct{display:block}
 .ct .ct-links{margin-top:18px}
 .ct .wrap{padding-block:clamp(40px,6vw,70px) clamp(16px,3vw,28px)}
 
+
+/* campus map info */
+.cmx{margin-top:clamp(24px,5vw,48px)}
+.cmx-soon{display:grid;place-items:center;align-content:center;gap:6px;aspect-ratio:31/20;max-height:min(60vh,440px);width:100%;border:1.5px dashed var(--rule);border-radius:14px;background:var(--plate);color:var(--muted);text-align:center;padding:20px}
+.cmx-soon svg{width:44px;height:44px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;opacity:.7}
+.cmx-soon b{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:600;color:var(--ink)}
+.cmx-soon small{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
+.cmx-lead{text-align:center!important;margin:22px auto 16px!important;color:var(--muted)}
+.cmx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
+.cmx-z{min-width:0;border:1px solid var(--rule);border-radius:14px;background:var(--plate);padding:clamp(16px,3vw,22px)}
+.cmx-z header{display:flex;align-items:center;gap:14px}
+.cmx-l{flex:0 0 46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:var(--serif-en),serif;font-size:1.45rem;box-shadow:0 0 0 2px var(--plate),0 0 0 3.5px var(--navy)}
+.cmx-z h4{margin:0;font-size:1.05rem;font-weight:600;color:var(--ink)}
+.cmx-th{margin:2px 0 0!important;font-size:.88rem;color:var(--muted)}
+.cmx-d{margin:12px 0 12px!important;font-size:.9rem;line-height:1.65;color:var(--ink);max-width:none!important}
+.cmx-list{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--rule);display:grid;gap:9px}
+.cmx-list li{display:flex;gap:10px;align-items:flex-start}
+.cmx-n{flex:0 0 26px;height:26px;border-radius:50%;background:color-mix(in srgb,var(--navy) 12%,transparent);color:var(--ink);display:grid;place-items:center;font-size:.72rem;font-weight:700;font-variant-numeric:tabular-nums}
+.cmx-t{display:flex;flex-direction:column;min-width:0;line-height:1.35}
+.cmx-t b{font-weight:600;font-size:.92rem}
+.cmx-t small{font-size:.8rem;color:var(--muted)}
+:root.is-dark .cmx-l{background:#2d4f8e;box-shadow:0 0 0 2px var(--plate),0 0 0 3.5px #6cc8ec}:root.is-dark .cmx-n{background:rgba(108,200,236,.14)}
 </style></head><body>
 <title>Aurora International</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1579,6 +1601,20 @@ fetch('https://docs.google.com/spreadsheets/d/'+SIDc+'/gviz/tq?tqx=out:csv&sheet
     <p>สามย่าน เขตบางรัก กรุงเทพมหานคร</p>
   </div>
 
+  <div class="sec cmx">
+    <h3>Campus Map <span class="sc">แผนที่โรงเรียน</span></h3>
+    <div class="cmx-soon" role="img" aria-label="แผนที่โรงเรียน เร็วๆ นี้"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg><b>เร็วๆ นี้</b><small>Campus map coming soon</small></div>
+    <p class="cmx-lead">พื้นที่โรงเรียนแบ่งเป็น 6 โซน</p>
+    <div class="cmx-grid">
+<article class="cmx-z" id="zone-a"><header><span class="cmx-l">A</span><div><h4>Front Zone</h4><p class="cmx-th">ด้านหน้าและทางเข้า</p></div></header><p class="cmx-d">ประตูหลักริมถนนพระรามที่ 4 เชื่อมต่อกับพื้นที่ต้อนรับและบริเวณด้านหน้าของโรงเรียน ใกล้สถานี MRT สามย่าน</p><ol class="cmx-list"><li><span class="cmx-n">01</span><span class="cmx-t"><b>Main Hall</b><small>หอประชุมใหญ่</small></span></li><li><span class="cmx-n">02</span><span class="cmx-t"><b>Founders&#x27; Lawn</b><small>สนามหญ้าผู้ก่อตั้ง</small></span></li><li><span class="cmx-n">03</span><span class="cmx-t"><b>Car Park</b><small>ลานจอดรถ</small></span></li><li><span class="cmx-n">04</span><span class="cmx-t"><b>Gatehouse</b><small>รปภ. รับฝากของ ติดต่อแลกบัตร</small></span></li><li><span class="cmx-n">05</span><span class="cmx-t"><b>Drop-off Circle</b><small>วงเวียนรับ–ส่ง</small></span></li><li><span class="cmx-n">06</span><span class="cmx-t"><b>Main Gate</b><small>ประตูหลัก เปิดในเวลา 05:30–09:30 และ 14:00–18:00 น.</small></span></li></ol></article>
+<article class="cmx-z" id="zone-b"><header><span class="cmx-l">B</span><div><h4>Heritage &amp; Administration</h4><p class="cmx-th">เขตมรดกและอาคารบริการ</p></div></header><p class="cmx-d">พื้นที่ประวัติศาสตร์ของโรงเรียน ซึ่งเป็นที่ตั้งของอาคารหลังแรกนับตั้งแต่ก่อตั้งในปี 1947 รวมถึงสำนักงานผู้อำนวยการ ฝ่ายทะเบียน โบสถ์กลางสนามหญ้า สวนประวัติศาสตร์ และหอพักเก่าที่ได้รับการอนุรักษ์และปรับปรุงเป็นพิพิธภัณฑ์โรงเรียน</p><ol class="cmx-list"><li><span class="cmx-n">01</span><span class="cmx-t"><b>Aurora Green</b><small>สนามหญ้าหน้าโรงเรียน</small></span></li><li><span class="cmx-n">02</span><span class="cmx-t"><b>Brothers&#x27; Chapel</b><small>โบสถ์</small></span></li><li><span class="cmx-n">03</span><span class="cmx-t"><b>Heritage Garden</b><small>สวนประวัติศาสตร์</small></span></li><li><span class="cmx-n">04</span><span class="cmx-t"><b>Old Boarding House</b><small>อาคารหอพักเก่า (Museum &amp; Archive)</small></span></li><li><span class="cmx-n">05</span><span class="cmx-t"><b>Founders&#x27; House</b><small>อาคารผู้ก่อตั้ง (1947)</small></span></li><li><span class="cmx-n">06</span><span class="cmx-t"><b>Health Centre</b><small>ห้องพยาบาล</small></span></li></ol></article>
+<article class="cmx-z" id="zone-c"><header><span class="cmx-l">C</span><div><h4>Academic Quad</h4><p class="cmx-th">เขตการศึกษา</p></div></header><p class="cmx-d">พื้นที่ของอาคารเรียนที่จัดวางโดยรอบพื้นที่ส่วนกลางของโรงเรียน ประกอบด้วยอาคารเรียนรวม อาคารวิทยาศาสตร์ อาคารธุรกิจและภาษา ห้องสมุด ท้องฟ้าจำลอง และหอดูดาว</p><ol class="cmx-list"><li><span class="cmx-n">01</span><span class="cmx-t"><b>Planetarium</b><small>ห้องท้องฟ้าจำลอง</small></span></li><li><span class="cmx-n">02</span><span class="cmx-t"><b>Observatory</b><small>หอดูดาว</small></span></li><li><span class="cmx-n">03</span><span class="cmx-t"><b>Library</b><small>ห้องสมุด</small></span></li><li><span class="cmx-n">04</span><span class="cmx-t"><b>Library Gardens</b><small>สวนหน้าห้องสมุด</small></span></li><li><span class="cmx-n">05</span><span class="cmx-t"><b>Newton Building</b><small>อาคารวิทยาศาสตร์</small></span></li><li><span class="cmx-n">06</span><span class="cmx-t"><b>The Quad</b><small>ลานกลาง</small></span></li><li><span class="cmx-n">07</span><span class="cmx-t"><b>Commerce House</b><small>อาคารธุรกิจ</small></span></li><li><span class="cmx-n">08</span><span class="cmx-t"><b>Main Teaching Block</b><small>อาคารเรียนรวม</small></span></li><li><span class="cmx-n">09</span><span class="cmx-t"><b>Language Centre</b><small>ศูนย์ภาษา</small></span></li></ol></article>
+<article class="cmx-z" id="zone-d"><header><span class="cmx-l">D</span><div><h4>Arts Quarter</h4><p class="cmx-th">พื้นที่สร้างสรรค์</p></div></header><p class="cmx-d">ศูนย์กลางด้านศิลปะและการแสดงของโรงเรียน ประกอบด้วยโรงละคร อาคารดนตรี สตูดิโอศิลปะ ห้องซ้อมเต้น และสวนประติมากรรม</p><ol class="cmx-list"><li><span class="cmx-n">01</span><span class="cmx-t"><b>Aurora Theatre</b><small>โรงละคร</small></span></li><li><span class="cmx-n">02</span><span class="cmx-t"><b>Black Box</b><small>โรงละครเล็ก</small></span></li><li><span class="cmx-n">03</span><span class="cmx-t"><b>Music School</b><small>อาคารดนตรี</small></span></li><li><span class="cmx-n">04</span><span class="cmx-t"><b>Band Room</b><small>ห้องวงดนตรี</small></span></li><li><span class="cmx-n">05</span><span class="cmx-t"><b>Sculpture Garden</b><small>สวนประติมากรรม</small></span></li><li><span class="cmx-n">06</span><span class="cmx-t"><b>Art &amp; Design Studios</b><small>อาคารศิลปะ</small></span></li><li><span class="cmx-n">07</span><span class="cmx-t"><b>Media Studio</b><small>สตูดิโอสื่อ</small></span></li><li><span class="cmx-n">08</span><span class="cmx-t"><b>Dance Studio</b><small>ห้องเต้น</small></span></li></ol></article>
+<article class="cmx-z" id="zone-e"><header><span class="cmx-l">E</span><div><h4>Student Life</h4><p class="cmx-th">พื้นที่สำหรับนักเรียนและกิจกรรม</p></div></header><p class="cmx-d">ใช้ประกอบกิจกรรมนอกห้องเรียน การพักผ่อน ประกอบด้วยโรงอาหาร ห้องพัก Sixth Form อาคารชมรม ร้านค้าของโรงเรียน ครัวฝึกสอน และเรือนกระจก</p><ol class="cmx-list"><li><span class="cmx-n">01</span><span class="cmx-t"><b>Teaching Kitchen</b><small>ครัวสอนทำอาหาร</small></span></li><li><span class="cmx-n">02</span><span class="cmx-t"><b>Dining Hall</b><small>โรงอาหาร</small></span></li><li><span class="cmx-n">03</span><span class="cmx-t"><b>Greenhouse &amp; Gardens</b><small>เรือนกระจกและแปลงปลูก</small></span></li><li><span class="cmx-n">04</span><span class="cmx-t"><b>Sixth Form Common Room</b><small>ห้องพักส่วนกลาง และห้องสภานักเรียน</small></span></li><li><span class="cmx-n">05</span><span class="cmx-t"><b>School Shop</b><small>ร้านค้าโรงเรียน</small></span></li><li><span class="cmx-n">06</span><span class="cmx-t"><b>Club Wing</b><small>อาคารชมรม</small></span></li></ol></article>
+<article class="cmx-z" id="zone-f"><header><span class="cmx-l">F</span><div><h4>Sports Precinct</h4><p class="cmx-th">เขตกีฬาและนันทนาการ</p></div></header><p class="cmx-d">พื้นที่กิจกรรมกีฬาที่ใหญ่ที่สุดของโรงเรียน ครอบคลุมสนามฟุตบอลและลู่วิ่ง สนามโปโลและคอกม้า ลานไอซ์สเก็ตในร่ม สระว่ายน้ำ คอร์ตเทนนิส โรงยิม และสนามกอล์ฟ</p><ol class="cmx-list"><li><span class="cmx-n">01</span><span class="cmx-t"><b>Polo Ground</b><small>สนามโปโล</small></span></li><li><span class="cmx-n">02</span><span class="cmx-t"><b>Stables</b><small>คอกม้า</small></span></li><li><span class="cmx-n">03</span><span class="cmx-t"><b>Maintenance Yard</b><small>ฝ่ายอาคารสถานที่</small></span></li><li><span class="cmx-n">04</span><span class="cmx-t"><b>Service Gate</b><small>ประตูบริการ</small></span></li><li><span class="cmx-n">05</span><span class="cmx-t"><b>Side Gate</b><small>ประตูข้าง</small></span></li><li><span class="cmx-n">06</span><span class="cmx-t"><b>Golf Course</b><small>สนามกอล์ฟ</small></span></li><li><span class="cmx-n">07</span><span class="cmx-t"><b>Ice Rink</b><small>ลานสเก็ตน้ำแข็ง</small></span></li><li><span class="cmx-n">08</span><span class="cmx-t"><b>Sports Hall</b><small>โรงยิม</small></span></li><li><span class="cmx-n">09</span><span class="cmx-t"><b>Main Field &amp; Track</b><small>สนามใหญ่และลู่วิ่ง</small></span></li><li><span class="cmx-n">10</span><span class="cmx-t"><b>Sport Science Centre</b><small>ศูนย์วิทยาศาสตร์การกีฬา</small></span></li><li><span class="cmx-n">11</span><span class="cmx-t"><b>Pavilion</b><small>ศาลากีฬา</small></span></li><li><span class="cmx-n">12</span><span class="cmx-t"><b>Combat &amp; Racquet Centre</b><small>อาคารกีฬาในร่ม</small></span></li><li><span class="cmx-n">13</span><span class="cmx-t"><b>Aquatics Centre</b><small>ศูนย์กีฬาทางน้ำ</small></span></li><li><span class="cmx-n">14</span><span class="cmx-t"><b>Tennis Courts</b><small>คอร์ตเทนนิส</small></span></li><li><span class="cmx-n">15</span><span class="cmx-t"><b>East Playing Lawn</b><small>สนามหญ้าฝั่งตะวันออก</small></span></li></ol></article>
+    </div>
+  </div>
+
 </section>
 
 <!-- SCHOOL RULES -->
@@ -2820,7 +2856,8 @@ if(document.readyState=='loading')document.addEventListener('DOMContentLoaded',i
 <style>
 /* sport page: centred text + apply buttons */
 .sp-about p{text-align:center;text-wrap:pretty;max-width:none!important;margin-inline:auto!important}
-.sp-cta{display:flex!important;flex-direction:column;align-items:center;gap:14px;grid-column:1/-1;text-align:center;margin:0 0 clamp(36px,6vw,64px)!important}
+.sp-cta{display:flex!important;flex-direction:column;align-items:center;gap:14px;grid-column:1/-1;text-align:center;margin:-4px 0 -32px!important;padding-bottom:0!important}
+.sp-cta .sa-big{display:none!important}
 .sp-cta .sa-big{margin:0!important;font-size:1rem!important;color:var(--muted)!important;white-space:normal!important}
 .sp-cta .sa-big b{font-family:var(--serif-en);font-weight:500;font-size:1.7rem!important;color:var(--ink)!important;margin:0 4px!important}
 .sp-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
@@ -2830,7 +2867,7 @@ if(document.readyState=='loading')document.addEventListener('DOMContentLoaded',i
 .sp-btns .sp-jn:hover{background:var(--ink);color:var(--paper)}
 :root[data-theme="dark"] .sp-btns .sp-jn{background:transparent}
 /* sport about text */
-.sp-about{display:block!important;padding:0!important;grid-column:1/-1;width:100%;max-width:760px;margin-inline:auto;margin-top:clamp(8px,2vw,20px);margin-bottom:0}
+.sp-about{display:block!important;padding:0!important;height:auto!important;min-height:0!important;align-self:start!important;grid-column:1/-1;width:100%;max-width:760px;margin-inline:auto;margin-top:clamp(8px,2vw,20px);margin-bottom:0}
 .sp-about p{margin:0 0 1.1em;font-size:16.5px;line-height:1.9;color:var(--ink)}
 .sp-about p:last-child{margin-bottom:0}
 /* motion: parallax, page entrance, ripple, menu hover */
